@@ -5,34 +5,54 @@ void main(List<String> args) {
 }
 
 class MyApp extends StatelessWidget {
+//   List<Widget> myList = [
+//     Container(
+//       height: 400,
+//       width: 100,
+//       color: Colors.green,
+//     ),
+//     Container(
+//       height: 300,
+//       width: 100,
+//       color: Colors.blue,
+//     ),
+//     Container(
+//       height: 200,
+//       width: 100,
+//       color: Colors.amber,
+//     ),
+//     Container(
+//       height: 100,
+//       width: 100,
+//       color: Colors.red,
+//     )
+//   ];
+
+  final List<Color> myColors = [
+    Colors.green,
+    Colors.blue,
+    Colors.amber,
+    Colors.red,
+  ];
+
+  final List<Widget> myList = List.generate(
+      100,
+      (index) => Text('Item ${index + 1}',
+          style: TextStyle(color: Colors.amber, fontSize: 20)));
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.blue[50],
-        appBar: AppBar(
-          title: Text('My App'),
-        ),
-        body: Center(
-          child: Text(
-            'Hello World lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit orem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit',
-            // maxLines: 2,
-            // overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 24,
-              color: Colors.green[300],
-              fontWeight: FontWeight.bold,
-              // fontStyle: FontStyle.italic,
-              fontFamily: 'Boldonse',
-              decorationStyle: TextDecorationStyle.wavy,
-              decoration: TextDecoration.lineThrough,
-              decorationColor: Colors.red,
-            ),
+          appBar: AppBar(
+            title: Text('My App', style: TextStyle(color: Colors.white)),
+            centerTitle: true,
+            backgroundColor: Colors.blue,
           ),
-        ),
-      ),
+          body: ListView(
+            children: myList,
+          )),
     );
   }
 }
